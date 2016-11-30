@@ -16,7 +16,7 @@ Check out the [demo](https://aaronshaf.github.io/shaf-rate/). Works in IE11, Edg
 
 ```html
 <shaf-toggle>
-  <input type="number" min="1" max="10" step="0.5" value="5" checked />
+  <input type="number" min="1" max="10" step="0.5" value="5" />
 </shaf-toggle>
 ```
 

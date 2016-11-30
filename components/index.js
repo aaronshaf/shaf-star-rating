@@ -9,9 +9,20 @@ export default class Rate extends Component {
     super(props)
     this.input = props.input
     this.state.value = this.input.value
+    this.state.hoverIndex = 0
+  }
+
+  handleHover (hoverIndex) {
+    this.setState({hoverIndex})
   }
 
   handleChange (value) {
+    this.input.value = value
+
+    const event = document.createEvent('HTMLEvents')
+    event.initEvent('change', false, true)
+    this.input.dispatchEvent(event)
+
     this.setState({value})
   }
 
@@ -24,12 +35,18 @@ export default class Rate extends Component {
         <Star
           key={x}
           onChange={this.handleChange.bind(this, x)}
+          onHover={this.handleHover.bind(this, x)}
           fillPercentage={fillPercentage}
+          isHighlighted={this.state.hoverIndex === 0 || this.state.hoverIndex >= x}
         />
       )
     }
     return (
-      <ul class="shaf-rate" aria-hidden>
+      <ul
+        class="shaf-rate"
+        onMouseOut={this.handleHover.bind(this, 0)}
+        aria-hidden
+      >
         {stars}
       </ul>
     )

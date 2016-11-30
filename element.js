@@ -45,6 +45,12 @@ export default createElementClass({
     this.updateRendering()
   },
 
+  disconnectedCallback() {
+    if (this.observer) {
+      this.observer.disconnect()
+    }
+  }
+
   updateRendering() {
     const root = this._shadowRoot || this.container
     preact.render(<RateComponent input={this.input}

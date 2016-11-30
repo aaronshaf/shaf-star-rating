@@ -24,6 +24,15 @@ export default createElementClass({
 
     this.input = this.querySelector('input')
     this.input.className += ' shaf-screenreader-only'
+
+    if (MutationObserver) {
+      this.observer = new MutationObserver((mutations) => {
+        this.updateRendering()
+      })
+      const observerConfig = { attributes: true, childList: true, characterData: true, subtree: true }
+      this.observer.observe(this.input, observerConfig)
+    }
+
     this.updateRendering()
   },
 

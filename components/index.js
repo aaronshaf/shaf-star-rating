@@ -2,34 +2,34 @@
 
 import preact, { Component } from 'preact'
 import classNames from 'classnames'
+import Star from './star'
 
 export default class Rate extends Component {
   constructor (props) {
     super(props)
+    this.input = props.input
+  }
+
+  handleChange (value) {
+    this.input.value = value
   }
 
   render () {
-    const star = (
-      <li class="shaf-rate-star">
-        <svg
-          viewBox="0 0 24 24"
-          style={{width: '24px'}}
-        >
-          <path
-            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-            fill="#F3A536"
-            stroke="#F3A536"
-          ></path>
-        </svg>
-      </li>
-    )
+    const starCount = Math.ceil(this.input.max || 5)
+    const stars = []
+    for (let x = 1; x <= starCount; x++) {
+      const fillPercentage = this.input.value < x ? 0 : 100
+      stars.push(
+        <Star
+          key={x}
+          onChange={this.handleChange.bind(this, x)}
+          fillPercentage={fillPercentage}
+        />
+      )
+    }
     return (
       <ul class="shaf-rate" aria-hidden>
-        {star}
-        {star}
-        {star}
-        {star}
-        {star}
+        {stars}
       </ul>
     )
   }

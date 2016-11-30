@@ -29,7 +29,38 @@ export default createElementClass({
 
   updateRendering() {
     const root = this._shadowRoot || this.container
-    preact.render(<RateComponent input={this.input} />, root, root.querySelector(':not(style)'))
+    preact.render(<RateComponent input={this.input}
+    />, root, root.querySelector(':not(style)'))
     this.rendered = true
   }
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (!document.body.attachShadow) {
+    const style = document.createElement('style')
+    style.type = 'text/css'
+    style.appendChild(document.createTextNode(css))
+    document.head.insertBefore(style, document.head.firstChild)
+  }
+
+  const tagStyle = document.createElement('style')
+  tagStyle.type = 'text/css'
+  tagStyle.appendChild(document.createTextNode(
+`shaf-rate {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  line-height: 1rem;
+}
+.shaf-screenreader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: fixed;
+  width: 1px;
+}`))
+  document.head.insertBefore(tagStyle, document.head.firstChild)
 })

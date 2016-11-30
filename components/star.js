@@ -24,7 +24,7 @@ export default class Star extends Component {
       <div class="shaf-rate-star">
         <svg
           viewBox="0 0 24 24"
-          style={{width: '24px'}}
+          style={{width: '24px', height: '24px'}}
           onClick={this.handleClick}
           onMouseOver={this.handleHover}
         >

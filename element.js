@@ -23,7 +23,16 @@ export default createElementClass({
     this.appendChild(this.container)
 
     this.input = this.querySelector('input')
-    this.input.className += ' shaf-screenreader-only'
+    Object.assign(this.input.style, {
+      border: '0',
+      clip: 'rect(0 0 0 0)',
+      height: '1px',
+      margin: '-1px',
+      overflow: 'hidden',
+      padding: '0',
+      position: 'fixed',
+      width: '1px'
+    })
 
     if (MutationObserver) {
       this.observer = new MutationObserver((mutations) => {
@@ -58,18 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 `shaf-rate {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 4px;
   line-height: 1rem;
-}
-.shaf-screenreader-only {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: fixed;
-  width: 1px;
 }`))
   document.head.insertBefore(tagStyle, document.head.firstChild)
 })

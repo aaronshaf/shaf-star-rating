@@ -33,7 +33,7 @@
     function showRating (event) {
       example1.innerHTML = escapeHtml(
 `<shaf-rate>
-  <input type="number" min="1" max="10" value="${rating.value}" />
+  <input type="number" min="1" max="5" value="${rating.value}" />
 </shaf-rate>`)
     }
     rating.addEventListener('change', showRating)

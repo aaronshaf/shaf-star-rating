@@ -7,6 +7,7 @@ export default
   vertical-align: middle;
   font-weight: normal;
   font-style: normal;
+  user-select: none;
 }
 
 .shaf-star-rating-star {

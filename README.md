@@ -17,9 +17,9 @@ Keyboard accessible. Check out the [demo](https://aaronshaf.github.io/shaf-star-
 ### Usage
 
 ```html
-<shaf-toggle>
+<shaf-star-rating>
   <input type="number" min="1" max="5" step="1" value="3" />
-</shaf-toggle>
+</shaf-star-rating>
 ```
 
 ### Benefits

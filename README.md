@@ -28,4 +28,3 @@ Because this wraps an existing `<input type="number" />`:
 
 * It is form-friendly.
 * It doesn't mess with your event handlers.
-* Your checkbox still works if JavaScript is turned off or fails to load.

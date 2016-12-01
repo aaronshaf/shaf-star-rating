@@ -20,6 +20,7 @@ export default class Rate extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleInput = this.handleInput.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.triggerChange = this.triggerChange.bind(this)
     this.increment = this.increment.bind(this)
     this.decrement = this.decrement.bind(this)
     this.input.addEventListener('focus', this.handleFocus)
@@ -46,6 +47,7 @@ export default class Rate extends Component {
     }
     this.input.value = value
 
+    this.triggerChange()
     this.setState({ value })
   }
 
@@ -60,6 +62,7 @@ export default class Rate extends Component {
     }
     this.input.value = value
 
+    this.triggerChange()
     this.setState({ value: value })
   }
 
@@ -97,12 +100,14 @@ export default class Rate extends Component {
 
   handleChange (value) {
     this.input.value = value
+    this.triggerChange()
+    this.setState({value})
+  }
 
+  triggerChange () {
     const event = document.createEvent('HTMLEvents')
     event.initEvent('change', false, true)
     this.input.dispatchEvent(event)
-
-    this.setState({value})
   }
 
   render () {

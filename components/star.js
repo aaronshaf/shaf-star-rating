@@ -18,6 +18,7 @@ export default class Star extends Component {
     this.handleMouseLeave = this.handleMouseLeave.bind(this)
     this.handleTouchStart = this.handleTouchStart.bind(this)
     this.handleTouchEnd = this.handleTouchEnd.bind(this)
+    this.uniqId = Math.random()
   }
 
   handleClick () { this.props.onChange() }
@@ -39,7 +40,7 @@ export default class Star extends Component {
     if (this.props.fillPercentage > 0) {
       fill = '#F3A536'
     } else {
-      fill = 'transparent'
+      fill = 'white'
     }
 
     let stroke
@@ -58,7 +59,7 @@ export default class Star extends Component {
 
     return (
       <div
-        class="shaf-star-rating-star"
+        class='shaf-star-rating-star'
         onClick={this.handleClick}
         onMouseOver={this.handleHover}
         onMouseDown={this.handleMouseDown}
@@ -68,11 +69,22 @@ export default class Star extends Component {
         onTouchEnd={this.handleTouchEnd}
       >
         <svg
-          viewBox="0 0 24 24"
+          viewBox='0 0 24 24'
           style={{width: '24px', height: '24px'}}
         >
+          <filter id={`blurfilter-${this.uniqId}`} width='24' height='24'>
+            <feGaussianBlur in='SourceGraphic' stdDeviation='2' />
+          </filter>
           <path
-            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'
+            fill='#0099E0'
+            stroke='#0099E0'
+            stroke-width='1'
+            opacity={this.state.isActive ? 1 : 0}
+            style={{filter: `url(#blurfilter-${this.uniqId})`}}
+          ></path>
+          <path
+            d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'
             fill={fill}
             stroke={stroke}
             stroke-width={strokeWidth}

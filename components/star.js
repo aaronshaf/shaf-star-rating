@@ -77,10 +77,10 @@ export default class Star extends Component {
           </filter>
           <path
             d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'
-            fill='#0099E0'
+            fill='transparent'
             stroke='#0099E0'
             stroke-width='1'
-            opacity={this.state.isActive ? 1 : 0}
+            opacity={this.props.isSelected || this.state.isActive ? 1 : 0}
             style={{filter: `url(#blurfilter-${this.uniqId})`}}
           ></path>
           <path
@@ -88,7 +88,7 @@ export default class Star extends Component {
             fill={fill}
             stroke={stroke}
             stroke-width={strokeWidth}
-            opacity={this.props.isHighlighted ? 1 : 0.5}
+            opacity={this.props.isHighlighted ? 1 : 0.4}
           ></path>
         </svg>
       </div>

@@ -33,7 +33,7 @@ export default class Rate extends Component {
     this.input.removeEventListener('focus', this.handleFocus)
     this.input.removeEventListener('blur', this.handleBlur)
     this.input.removeEventListener('input', this.handleInput)
-    this.input.addEventListener('keydown', this.handleKeyDown)
+    this.input.removeEventListener('keydown', this.handleKeyDown)
   }
 
   decrement () {
@@ -67,12 +67,13 @@ export default class Rate extends Component {
   }
 
   handleKeyDown (event) {
-    if (event.key === 'ArrowLeft') {
+    if (event.keyCode >= 37 && event.keyCode <= 40) {
+      this.handleHover(Math.ceil(this.input.max || 5))
+    }
+    if (event.keyCode === 37) { // 'ArrowLeft'
       this.decrement()
-      this.handleHover(Math.ceil(this.input.max || 5))
-    } else if (event.key === 'ArrowRight') {
+    } else if (event.keyCode === 39) { // 'ArrowRight'
       this.increment()
-      this.handleHover(Math.ceil(this.input.max || 5))
     }
   }
 

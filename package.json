@@ -8,7 +8,7 @@
     "index.js"
   ],
   "name": "shaf-rate",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Accessible star rating element. Upgrades <input type=\"number\" />",
   "directories": {
     "doc": "docs"

@@ -23,7 +23,7 @@ export default createElementClass({
     this.appendChild(this.container)
 
     this.input = this.querySelector('input')
-    Object.assign(this.input.style, {
+    const styles = {
       border: '0',
       clip: 'rect(0 0 0 0)',
       height: '1px',
@@ -32,6 +32,9 @@ export default createElementClass({
       padding: '0',
       position: 'fixed',
       width: '1px'
+    }
+    Object.keys(styles).forEach((key) => {
+      this.input.style[key] = styles[key]
     })
 
     if (MutationObserver) {

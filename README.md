@@ -1,5 +1,7 @@
 ## It's easy peasy
 
+<img src="https://d3vv6lp55qjaqc.cloudfront.net/items/330r191i0c2D1F0u3R34/Screen%20Recording%202016-11-30%20at%2009.50%20PM.gif?X-CloudApp-Visitor-Id=8c7c3ddb4f82754e00f6dac0eaa0cbfa&v=2bf38c50" width="130" height="35" />
+
 Check out the [demo](https://aaronshaf.github.io/shaf-rate/). Works in IE11, Edge, Chrome, Firefox, and Safari.
 
 ```html

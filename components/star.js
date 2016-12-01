@@ -18,7 +18,19 @@ export default class Star extends Component {
   }
 
   render () {
-    let fill = this.props.fillPercentage > 0 ? '#F3A536' : 'transparent'
+    let fill
+    if (this.props.fillPercentage > 0) {
+      fill = '#F3A536'
+    } else {
+      fill = 'transparent'
+    }
+
+    let stroke
+    if(this.props.isSelected) {
+      stroke = '#0099E0'
+    } else {
+      stroke = '#F3A536'
+    }
 
     return (
       <div class="shaf-rate-star">
@@ -31,7 +43,8 @@ export default class Star extends Component {
           <path
             d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
             fill={fill}
-            stroke="#F3A536"
+            stroke={stroke}
+            stroke-width={1}
             opacity={this.props.isHighlighted ? 1 : 0.5}
           ></path>
         </svg>

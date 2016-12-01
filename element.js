@@ -49,12 +49,15 @@ export default createElementClass({
     if (this.observer) {
       this.observer.disconnect()
     }
-  }
+  },
 
   updateRendering() {
     const root = this._shadowRoot || this.container
-    preact.render(<RateComponent input={this.input}
-    />, root, root.querySelector(':not(style)'))
+    preact.render(
+      <RateComponent input={this.input} />,
+      root,
+      root.querySelector(':not(style)')
+    )
     this.rendered = true
   }
 })

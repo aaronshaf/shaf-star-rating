@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   display: inline-block;
   vertical-align: middle;
   line-height: 1rem;
+  cursor: pointer;
 }`))
   document.head.insertBefore(tagStyle, document.head.firstChild)
 })

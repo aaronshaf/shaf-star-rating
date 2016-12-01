@@ -32,7 +32,10 @@ export default class Star extends Component {
     this.props.onChange()
     this.setState({isActive: false})
   }
-  handleMouseUp () { this.setState({isActive: false}) }
+  handleMouseUp () {
+    this.props.onChange()
+    this.setState({isActive: false})
+  }
   handleMouseLeave () { this.setState({isActive: false}) }
 
   render () {

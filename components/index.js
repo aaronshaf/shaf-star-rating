@@ -22,6 +22,7 @@ export default class Rate extends Component {
     this.handleInput = this.handleInput.bind(this)
     this.handleMouseLeave = this.handleMouseLeave.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleDragStart = this.handleDragStart.bind(this)
     this.triggerChange = this.triggerChange.bind(this)
     this.increment = this.increment.bind(this)
     this.decrement = this.decrement.bind(this)
@@ -67,6 +68,8 @@ export default class Rate extends Component {
     this.triggerChange()
     this.setState({ value: value })
   }
+
+  handleDragStart () { return false }
 
   handleKeyDown (event) {
     if (event.keyCode >= 37 && event.keyCode <= 40) {
@@ -135,6 +138,7 @@ export default class Rate extends Component {
         class="shaf-star-rating"
         onMouseOut={this.handleMouseLeave}
         onClick={this.handleClick}
+        onDragStart={this.handleDragStart}
         aria-hidden
       >
         {stars}

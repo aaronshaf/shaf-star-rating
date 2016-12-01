@@ -18,7 +18,7 @@ Keyboard accessible. Check out the [demo](https://aaronshaf.github.io/shaf-star-
 
 ```html
 <shaf-toggle>
-  <input type="number" min="1" max="10" step="0.5" value="5" />
+  <input type="number" min="1" max="5" step="1" value="3" />
 </shaf-toggle>
 ```
 

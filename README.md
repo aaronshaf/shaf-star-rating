@@ -9,7 +9,7 @@ Check out the [demo](https://aaronshaf.github.io/shaf-rate/). Works in IE11, Edg
 
 ```html
 <!-- Our custom element's source -->
-<script src="https://unpkg.com/shaf-rate@0.0.4"></script>
+<script src="https://unpkg.com/shaf-rate@0.0.5"></script>
 ```
 
 ### Usage

@@ -1,3 +1,3 @@
 import RateElement from './element'
 
-customElements.define('shaf-rate', RateElement)
+customElements.define('shaf-star-rating', RateElement)

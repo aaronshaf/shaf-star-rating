@@ -33,7 +33,7 @@ export default class Star extends Component {
     }
 
     return (
-      <div class="shaf-rate-star">
+      <div class="shaf-star-rating-star">
         <svg
           viewBox="0 0 24 24"
           style={{width: '24px', height: '24px'}}

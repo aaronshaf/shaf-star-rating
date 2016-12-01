@@ -1,5 +1,5 @@
 export default
-`.shaf-rate {
+`.shaf-star-rating {
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -9,6 +9,6 @@ export default
   font-style: normal;
 }
 
-.shaf-rate-star {
+.shaf-star-rating-star {
   display: inline-block;
 }`

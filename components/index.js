@@ -123,7 +123,7 @@ export default class Rate extends Component {
     }
     return (
       <ul
-        class="shaf-rate"
+        class="shaf-star-rating"
         onMouseOut={this.handleHover.bind(this, 0)}
         onClick={this.handleClick}
         aria-hidden

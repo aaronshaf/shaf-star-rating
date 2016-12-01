@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tagStyle = document.createElement('style')
   tagStyle.type = 'text/css'
   tagStyle.appendChild(document.createTextNode(
-`shaf-rate {
+`shaf-star-rating {
   display: inline-block;
   vertical-align: middle;
   line-height: 1rem;

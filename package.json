@@ -7,7 +7,7 @@
   "files": [
     "index.js"
   ],
-  "name": "shaf-rate",
+  "name": "shaf-star-rating",
   "version": "1.0.0",
   "description": "Accessible star rating element. Upgrades <input type=\"number\" />",
   "directories": {
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aaronshaf/shaf-rate.git"
+    "url": "git+https://github.com/aaronshaf/shaf-star-rating.git"
   },
   "keywords": [
     "rate",
@@ -39,7 +39,7 @@
   "author": "Aaron Shafovaloff <aaronshaf@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aaronshaf/shaf-rate/issues"
+    "url": "https://github.com/aaronshaf/shaf-star-rating/issues"
   },
-  "homepage": "https://github.com/aaronshaf/shaf-rate#readme"
+  "homepage": "https://github.com/aaronshaf/shaf-star-rating#readme"
 }

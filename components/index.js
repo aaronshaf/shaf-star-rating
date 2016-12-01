@@ -36,19 +36,31 @@ export default class Rate extends Component {
   }
 
   decrement () {
-    const step = 1
-    const value = parseInt(this.input.value, 10)
-    this.input.value = value - step
+    const step = parseFloat(this.input.step) || 1
+    let value = parseFloat(this.input.value) - step
+    if (
+      typeof this.input.min !== 'undefined' &&
+      value < parseFloat(this.input.min)
+    ) {
+      value = parseFloat(this.input.min)
+    }
+    this.input.value = value
 
-    this.setState({ value: value - step })
+    this.setState({ value })
   }
 
   increment () {
-    const step = 1
-    const value = parseInt(this.input.value, 10)
-    this.input.value = value + step
+    const step = parseFloat(this.input.step) || 1
+    let value = parseFloat(this.input.value) + step
+    if (
+      typeof this.input.min !== 'undefined' &&
+      value > parseFloat(this.input.max)
+    ) {
+      value = parseFloat(this.input.max)
+    }
+    this.input.value = value
 
-    this.setState({ value: value + step })
+    this.setState({ value: value })
   }
 
   handleKeyDown (event) {

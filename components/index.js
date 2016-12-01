@@ -20,6 +20,7 @@ export default class Rate extends Component {
     this.handleClick = this.handleClick.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleInput = this.handleInput.bind(this)
+    this.handleMouseLeave = this.handleMouseLeave.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.triggerChange = this.triggerChange.bind(this)
     this.increment = this.increment.bind(this)
@@ -94,17 +95,11 @@ export default class Rate extends Component {
     })
   }
 
-  handleFocus (hoverIndex) {
-    this.setState({hasFocus: true})
-  }
+  handleMouseLeave () { this.setState({ inKeyboardMode: true }) }
 
-  handleBlur (hoverIndex) {
-    this.setState({hasFocus: false})
-  }
-
-  handleInput () {
-    this.handleChange(this.input.value)
-  }
+  handleFocus (hoverIndex) { this.setState({hasFocus: true}) }
+  handleBlur (hoverIndex) { this.setState({hasFocus: false}) }
+  handleInput () { this.handleChange(this.input.value) }
 
   handleChange (value) {
     this.input.value = value
@@ -138,7 +133,7 @@ export default class Rate extends Component {
     return (
       <div
         class="shaf-star-rating"
-        onMouseOut={this.handleHover.bind(this, starCount)}
+        onMouseOut={this.handleMouseLeave}
         onClick={this.handleClick}
         aria-hidden
       >

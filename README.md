@@ -6,7 +6,7 @@ Keyboard accessible. Check out the [demo](https://aaronshaf.github.io/shaf-star-
 
 ```html
 <!-- Custom Elements v1 polyfill (2.7KB gzipped) -->
-<script src="https://unpkg.com/@webcomponents/custom-elements@1.0.2-alpha.3"></script>
+<script src="https://unpkg.com/@webcomponents/custom-elements@1.0.0-alpha.3/custom-elements.min.js"></script>
 ```
 
 ```html

@@ -7,15 +7,22 @@ export default class Star extends Component {
   constructor (props) {
     super(props)
     this.input = props.input
+    this.state.isActive = false
+    this.state.isSelected = false
+
+    // ugh
     this.handleClick = this.handleClick.bind(this)
     this.handleHover = this.handleHover.bind(this)
+    this.handleMouseDown = this.handleMouseDown.bind(this)
+    this.handleMouseUp = this.handleMouseUp.bind(this)
+    this.handleMouseLeave = this.handleMouseLeave.bind(this)
   }
 
   handleClick () { this.props.onChange() }
-
-  handleHover () {
-    this.props.onHover()
-  }
+  handleHover () { this.props.onHover() }
+  handleMouseDown () { this.setState({isActive: true}) }
+  handleMouseUp () { this.setState({isActive: false}) }
+  handleMouseLeave () { this.setState({isActive: false}) }
 
   render () {
     let fill
@@ -26,25 +33,37 @@ export default class Star extends Component {
     }
 
     let stroke
-    if(this.props.isSelected) {
+    if (this.props.isSelected || this.state.isActive) {
       stroke = '#0099E0'
     } else {
       stroke = '#F3A536'
     }
 
+    let strokeWidth
+    if (this.state.isActive) {
+      strokeWidth = 2
+    } else {
+      strokeWidth = 1
+    }
+
     return (
-      <div class="shaf-star-rating-star">
+      <div
+        class="shaf-star-rating-star"
+        onClick={this.handleClick}
+        onMouseOver={this.handleHover}
+        onMouseDown={this.handleMouseDown}
+        onMouseUp={this.handleMouseUp}
+        onMouseLeave={this.handleMouseLeave}
+      >
         <svg
           viewBox="0 0 24 24"
           style={{width: '24px', height: '24px'}}
-          onClick={this.handleClick}
-          onMouseOver={this.handleHover}
         >
           <path
             d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
             fill={fill}
             stroke={stroke}
-            stroke-width={1}
+            stroke-width={strokeWidth}
             opacity={this.props.isHighlighted ? 1 : 0.5}
           ></path>
         </svg>

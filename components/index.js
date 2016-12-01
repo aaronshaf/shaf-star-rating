@@ -74,7 +74,7 @@ export default class Rate extends Component {
     }
   }
 
-  handleClick () {
+  handleClick (event) {
     if (event.target !== this.input) {
       event.preventDefault()
       this.input.focus()

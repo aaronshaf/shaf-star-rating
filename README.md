@@ -11,7 +11,7 @@ Keyboard accessible. Check out the [demo](https://aaronshaf.github.io/shaf-star-
 
 ```html
 <!-- Our custom element's source (6.5KB gzipped) -->
-<script src="https://unpkg.com/shaf-star-rating@1.0.11"></script>
+<script src="https://unpkg.com/shaf-star-rating@1.0.12"></script>
 ```
 
 ### Usage

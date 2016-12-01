@@ -37,10 +37,29 @@ export default class Star extends Component {
 
   render () {
     let fill
-    if (this.props.fillPercentage > 0) {
+    if (
+      this.props.inKeyboardMode ||
+      this.props.isHighlighted ||
+      this.props.fillPercentage > 0
+    ) {
       fill = '#F3A536'
     } else {
       fill = 'white'
+    }
+
+    let fillOpacity
+    if (
+      (this.props.inKeyboardMode || this.props.isHighlighted) &&
+      this.props.fillPercentage > 0
+    ) {
+      fillOpacity = 1
+    } else if (
+      !this.props.inKeyboardMode &&
+      (this.props.isHighlighted || this.props.fillPercentage > 0)
+    ) {
+      fillOpacity = 0.4
+    } else {
+      fillOpacity = 0
     }
 
     let stroke
@@ -73,7 +92,7 @@ export default class Star extends Component {
           style={{width: '24px', height: '24px'}}
         >
           <filter id={`blurfilter-${this.uniqId}`} width='24' height='24'>
-            <feGaussianBlur in='SourceGraphic' stdDeviation='2' />
+            <feGaussianBlur in='SourceGraphic' stdDeviation='1' />
           </filter>
           <path
             d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'
@@ -88,7 +107,7 @@ export default class Star extends Component {
             fill={fill}
             stroke={stroke}
             stroke-width={strokeWidth}
-            opacity={this.props.isHighlighted ? 1 : 0.4}
+            fill-opacity={fillOpacity}
           ></path>
         </svg>
       </div>

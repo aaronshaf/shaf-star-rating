@@ -10,8 +10,9 @@ export default class Rate extends Component {
     this.input = props.input
     this.state = {
       value: this.input.value,
-      hoverIndex: 0,
-      hasFocus: false
+      hoverIndex: this.input.value,
+      hasFocus: false,
+      inKeyboardMode: false
     }
     this.handleFocus = this.handleFocus.bind(this)
     this.handleBlur = this.handleBlur.bind(this)
@@ -68,7 +69,7 @@ export default class Rate extends Component {
 
   handleKeyDown (event) {
     if (event.keyCode >= 37 && event.keyCode <= 40) {
-      this.handleHover(Math.ceil(this.input.max || 5))
+      this.setState({inKeyboardMode: true})
     }
     if (event.keyCode === 37) { // 'ArrowLeft'
       this.decrement()
@@ -81,12 +82,16 @@ export default class Rate extends Component {
     if (event.target !== this.input) {
       event.preventDefault()
       this.input.focus()
+      this.setState({inKeyboardMode: false})
       return
     }
   }
 
   handleHover (hoverIndex) {
-    this.setState({hoverIndex})
+    this.setState({
+      hoverIndex,
+      inKeyboardMode: false
+    })
   }
 
   handleFocus (hoverIndex) {
@@ -125,14 +130,15 @@ export default class Rate extends Component {
           onHover={this.handleHover.bind(this, x)}
           isSelected={this.state.hasFocus && Math.floor(this.state.value) === x}
           fillPercentage={fillPercentage}
-          isHighlighted={this.state.hoverIndex === 0 || this.state.hoverIndex >= x}
+          isHighlighted={this.state.hoverIndex >= x}
+          inKeyboardMode={this.state.inKeyboardMode}
         />
       )
     }
     return (
       <div
         class="shaf-star-rating"
-        onMouseOut={this.handleHover.bind(this, 0)}
+        onMouseOut={this.handleHover.bind(this, starCount)}
         onClick={this.handleClick}
         aria-hidden
       >

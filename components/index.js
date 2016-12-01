@@ -69,8 +69,10 @@ export default class Rate extends Component {
   handleKeyDown (event) {
     if (event.key === 'ArrowLeft') {
       this.decrement()
+      this.handleHover(Math.ceil(this.input.max || 5))
     } else if (event.key === 'ArrowRight') {
       this.increment()
+      this.handleHover(Math.ceil(this.input.max || 5))
     }
   }
 

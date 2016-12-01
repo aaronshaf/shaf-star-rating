@@ -127,14 +127,14 @@ export default class Rate extends Component {
       )
     }
     return (
-      <ul
+      <div
         class="shaf-star-rating"
         onMouseOut={this.handleHover.bind(this, 0)}
         onClick={this.handleClick}
         aria-hidden
       >
         {stars}
-      </ul>
+      </div>
     )
   }
 }

@@ -9,7 +9,7 @@
   ],
   "name": "shaf-rate",
   "version": "0.0.5",
-  "description": "Elegant, accessible rate element. Upgrades <input type=\"number\" />",
+  "description": "Accessible star rating element. Upgrades <input type=\"number\" />",
   "directories": {
     "doc": "docs"
   },

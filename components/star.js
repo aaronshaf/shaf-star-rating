@@ -16,11 +16,21 @@ export default class Star extends Component {
     this.handleMouseDown = this.handleMouseDown.bind(this)
     this.handleMouseUp = this.handleMouseUp.bind(this)
     this.handleMouseLeave = this.handleMouseLeave.bind(this)
+    this.handleTouchStart = this.handleTouchStart.bind(this)
+    this.handleTouchEnd = this.handleTouchEnd.bind(this)
   }
 
   handleClick () { this.props.onChange() }
   handleHover () { this.props.onHover() }
   handleMouseDown () { this.setState({isActive: true}) }
+  handleTouchStart () {
+    this.props.onHover()
+    this.setState({isActive: true})
+  }
+  handleTouchEnd () {
+    this.props.onChange()
+    this.setState({isActive: false})
+  }
   handleMouseUp () { this.setState({isActive: false}) }
   handleMouseLeave () { this.setState({isActive: false}) }
 
@@ -54,6 +64,8 @@ export default class Star extends Component {
         onMouseDown={this.handleMouseDown}
         onMouseUp={this.handleMouseUp}
         onMouseLeave={this.handleMouseLeave}
+        onTouchStart={this.handleTouchStart}
+        onTouchEnd={this.handleTouchEnd}
       >
         <svg
           viewBox="0 0 24 24"

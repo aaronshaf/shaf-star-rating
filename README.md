@@ -28,3 +28,11 @@ Because this wraps an existing `<input type="number" />`:
 
 * It is form-friendly.
 * It doesn't mess with your event handlers.
+
+## See also
+
+* [shaf-button](https://github.com/aaronshaf/shaf-button)
+* [shaf-chart](https://github.com/aaronshaf/shaf-chart)
+* [shaf-toggle](https://github.com/aaronshaf/shaf-toggle)
+* [shaf-unified-diff](https://github.com/aaronshaf/shaf-unified-diff)
+* [shaf-timeago](https://github.com/aaronshaf/shaf-timeago)

@@ -5,12 +5,12 @@
 Keyboard accessible. Check out the [demo](https://aaronshaf.github.io/shaf-star-rating/). Works in IE11, Edge, Chrome, Firefox, and Safari.
 
 ```html
-<!-- Custom Elements v1 polyfill (19.8KB, 2.7KB gzipped) -->
+<!-- Custom Elements v1 polyfill (2.7KB gzipped) -->
 <script src="https://unpkg.com/@webcomponents/custom-elements@1.0.0-alpha.3"></script>
 ```
 
 ```html
-<!-- Our custom element's source (6.5KB gzipped) -->
+<!-- Our custom element's source (19.8KB, 6.5KB gzipped) -->
 <script src="https://unpkg.com/shaf-star-rating@1.0.13"></script>
 ```
 
